@@ -1,0 +1,146 @@
+@import './base.scss';
+
+#root{
+  @extend %view-100;
+  #con{
+    @extend %inherit;
+    // bg contents con
+    &>div:nth-child(1){
+      @extend %inherit;
+      @extend %flex-center-center;
+      @extend %flex-column;
+      // header
+      &>div:nth-child(1){
+        // @include width-height(inherit, 10vh);
+        width: inherit;
+        flex-grow: 1;
+        @include flex-align-justify(center, center);
+        background-color: $color-e5;
+        &>div{
+          @include width-height(90%, 100%);
+          @include flex-align-justify(center, flex-start);
+          &>div{
+            @include width-height(30%, 50%);
+            background-color: gray;
+          }
+        }
+      }
+      // main
+      &>div:nth-child(2){
+        // @include width-height(inherit, 30vh);
+        width: inherit;
+        flex-grow: 3;
+        &>div{
+          @extend %per-100;
+          background-color: $color-d6;
+          // 겹쳐진 박스 부분
+          &>div{
+            @include width-height(50%, inherit);
+            @extend %flex-center-center;
+            // 겹치는 박스 items
+            &>div{
+              @include width-height(40vw, 30vw);
+              position: absolute;
+            }
+            &>div:nth-child(1){
+              z-index: 3;
+              background-color: #fff;
+            }
+            &>div:nth-child(2){
+              position: relative;
+              top: 2vw;
+              left: 2vw;
+              z-index: 2;
+              background-color: $color-c4;
+            }
+            // Q1. 뷰포트 크기가 늘어나면 div:nth-child(3)의 모양새가 틀어지는데 혹시 absolute 외에 다른 해결 방법이 없을지 궁금합니다
+            &>div:nth-child(3){
+              top: 16vw;
+              left: 9vw;
+              background-color: $color-dg;
+            }
+          }
+        }
+      }
+      // content1
+      &>div:nth-child(3){
+        width: inherit;
+        flex-grow: 2;
+        background-color: $color-c4;
+        @extend %flex-center-center;
+        &>div{
+          @include width-height(95%, 90%);
+          @include flex-align-justify(center, space-between);
+          &>div{
+            @include width-height(30%, 100%);
+            background-color: $color-e5;
+            @extend %flex-center-center;
+            &>div{
+              @include width-height(15vw, 10vh);
+              &>div{
+                @include width-height($per100, 20%);
+              }
+            }
+            &>div:nth-child(1){
+              position: relative;
+              right: 2vw;
+              top: -2vw;
+              background-color: $color-e5;
+              @include border(5px, $color-c4);
+              &>div:nth-child(1){
+                border-bottom: 5px solid $color-c4;
+              }
+            }
+            &>div:nth-child(2){
+              position: absolute;
+              left: 12vw;
+              @include border(5px, gray);
+              background-color: $color-e5;
+              &>div:nth-child(1){
+                border-bottom: 5px solid gray;
+              }
+            }
+          }
+        }
+      }
+      // content2
+      &>div:nth-child(4){
+        width: inherit;
+        flex-grow: 1;
+        width: inherit;
+        flex-grow: 1.5;
+        background-color: gray;
+        @extend %flex-center-center;
+        &>div{
+          @include width-height(95%, 90%);
+          @include flex-align-justify(center, space-between);
+          &>div{
+            @include width-height(30%, 100%);
+            background-color: $color-e5;
+            }
+          }
+        }
+      }
+      &>div:nth-child(2){
+        @include width-height(100vw, 30vh);
+        position: absolute;
+        top: 2vh;
+        right: 2vw;
+        z-index:4;
+        @include flex-align-justify(flex-start, flex-end);
+        &>nav{
+          @include width-height(50%, $per100);
+          background-color: gray;
+          // @extend %flex-center-center;
+          @include flex-align-justify(center, space-around);
+          ul{
+            @include width-height(20%, 90%);
+            list-style-type: none;
+            background-color: $color-d6;
+            @extend %flex-center-center;
+            @extend %flex-column
+          }
+        }
+      }
+    }
+  }
