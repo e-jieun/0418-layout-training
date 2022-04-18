@@ -69,8 +69,8 @@
 }
 
 #root #con > div:nth-child(1) > div:nth-child(1) > div > div {
-  width: 30%;
-  height: 50%;
+  width: 15%;
+  height: 70%;
   background-color: gray;
 }
 
@@ -91,9 +91,11 @@
 }
 
 #root #con > div:nth-child(1) > div:nth-child(2) > div > div > div {
-  width: 40vw;
-  height: 30vw;
+  width: 30vw;
+  height: 20vw;
   position: absolute;
+  top: 12vw;
+  left: 10vw;
 }
 
 #root #con > div:nth-child(1) > div:nth-child(2) > div > div > div:nth-child(1) {
@@ -102,16 +104,16 @@
 }
 
 #root #con > div:nth-child(1) > div:nth-child(2) > div > div > div:nth-child(2) {
-  position: relative;
-  top: 2vw;
-  left: 2vw;
+  top: 14vw;
+  left: 12vw;
   z-index: 2;
   background-color: #c4c4c4;
 }
 
 #root #con > div:nth-child(1) > div:nth-child(2) > div > div > div:nth-child(3) {
   top: 16vw;
-  left: 9vw;
+  left: 14vw;
+  z-index: 1;
   background-color: dimgray;
 }
 
@@ -178,10 +180,6 @@
 
 #root #con > div:nth-child(1) > div:nth-child(4) {
   width: inherit;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  width: inherit;
   -webkit-box-flex: 1.5;
       -ms-flex-positive: 1.5;
           flex-grow: 1.5;
@@ -238,6 +236,10 @@
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+#root #con > div:nth-child(2) > nav:hover {
+  display: none;
 }
 
 #root #con > div:nth-child(2) > nav ul {

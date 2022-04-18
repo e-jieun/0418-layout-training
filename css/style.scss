@@ -1,5 +1,20 @@
 @import './base.scss';
 
+@keyframes shrinkup {
+  0%{
+    width: 10vw;
+    height: 10vw;
+  }
+  50%{
+    width: 50vw;
+    height: 50vw;
+  }
+  10%{
+    width: 10vw;
+    height: 10vw;
+  }
+}
+
 #root{
   @extend %view-100;
   #con{
@@ -20,7 +35,7 @@
           @include width-height(90%, 100%);
           @include flex-align-justify(center, flex-start);
           &>div{
-            @include width-height(30%, 50%);
+            @include width-height(15%, 70%);
             background-color: gray;
           }
         }
@@ -39,24 +54,26 @@
             @extend %flex-center-center;
             // 겹치는 박스 items
             &>div{
-              @include width-height(40vw, 30vw);
+              @include width-height(30vw, 20vw);
               position: absolute;
+              top: 12vw;
+              left: 10vw;
             }
             &>div:nth-child(1){
               z-index: 3;
               background-color: #fff;
             }
             &>div:nth-child(2){
-              position: relative;
-              top: 2vw;
-              left: 2vw;
+              top: 14vw;
+              left: 12vw;
               z-index: 2;
               background-color: $color-c4;
             }
             // Q1. 뷰포트 크기가 늘어나면 div:nth-child(3)의 모양새가 틀어지는데 혹시 absolute 외에 다른 해결 방법이 없을지 궁금합니다
             &>div:nth-child(3){
               top: 16vw;
-              left: 9vw;
+              left: 14vw;
+              z-index: 1;
               background-color: $color-dg;
             }
           }
@@ -106,8 +123,6 @@
       // content2
       &>div:nth-child(4){
         width: inherit;
-        flex-grow: 1;
-        width: inherit;
         flex-grow: 1.5;
         background-color: gray;
         @extend %flex-center-center;
@@ -129,6 +144,7 @@
         z-index:4;
         @include flex-align-justify(flex-start, flex-end);
         &>nav{
+          display: none;
           @include width-height(50%, $per100);
           background-color: gray;
           // @extend %flex-center-center;
@@ -138,7 +154,7 @@
             list-style-type: none;
             background-color: $color-d6;
             @extend %flex-center-center;
-            @extend %flex-column
+            @extend %flex-column;
           }
         }
       }
